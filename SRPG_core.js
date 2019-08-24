@@ -3536,37 +3536,38 @@ Game_Interpreter.prototype.unitAddState = function(eventId, stateId) {
         }
     };
 
+    //modified by onlimono
     Window_SrpgStatus.prototype.drawContentsActor = function() {
         var lineHeight = this.lineHeight();
-        this.drawActorName(this._battler, 6, lineHeight * 0);
-        this.drawActorClass(this._battler, 192, lineHeight * 0);
-        this.drawActorFace(this._battler, 6, lineHeight * 1);
-        this.drawBasicInfoActor(176, lineHeight * 1);
-        this.drawActorSrpgEqiup(this._battler, 6, lineHeight * 5);
-        this.drawParameters(6, lineHeight * 6);
-        this.drawSrpgParameters(6, lineHeight * 9);
+        this.drawActorName(this._battler, 0, lineHeight * 0);
+        this.drawActorClass(this._battler, 0, lineHeight * 1);
+//        this.drawActorFace(this._battler, 6, lineHeight * 1);
+        this.drawBasicInfoActor(0, lineHeight * 0);
+//        this.drawActorSrpgEqiup(this._battler, 6, lineHeight * 5);
+//        this.drawParameters(6, lineHeight * 6);
+//        this.drawSrpgParameters(6, lineHeight * 9);
     };
 
     Window_SrpgStatus.prototype.drawContentsEnemy = function() {
         var lineHeight = this.lineHeight();
-        this.drawActorName(this._battler, 6, lineHeight * 0);
-        this.drawEnemyClass(this._battler, 192, lineHeight * 0);
-        this.drawEnemyFace(this._battler, 6, lineHeight * 1);
-        this.drawBasicInfoEnemy(176, lineHeight * 1);
-        this.drawEnemySrpgEqiup(this._battler, 6, lineHeight * 5);
-        this.drawParameters(6, lineHeight * 6);
-        this.drawSrpgParameters(6, lineHeight * 9);
+        this.drawActorName(this._battler, 0, lineHeight * 0);
+        this.drawEnemyClass(this._battler, 0, lineHeight * 1);
+//        this.drawEnemyFace(this._battler, 6, lineHeight * 1);
+        this.drawBasicInfoEnemy(0, lineHeight * 0);
+//        this.drawEnemySrpgEqiup(this._battler, 6, lineHeight * 5);
+//        this.drawParameters(6, lineHeight * 6);
+//        this.drawSrpgParameters(6, lineHeight * 9);
     };
 
     Window_SrpgStatus.prototype.drawBasicInfoActor = function(x, y) {
         var lineHeight = this.lineHeight();
-        this.drawSrpgExpRate(this._battler, x, y + lineHeight * 0);
-        this.drawActorLevel(this._battler, x, y + lineHeight * 0);
-        this.drawActorIcons(this._battler, x, y + lineHeight * 1);
-        this.drawActorHp(this._battler, x, y + lineHeight * 2);
+        this.drawSrpgExpRate(this._battler, x + 174, y + lineHeight * 1);
+        this.drawActorLevel(this._battler, x + 174, y + lineHeight * 1);
+        this.drawActorIcons(this._battler, x + 174, y + lineHeight * 0);
+        this.drawActorHp(this._battler, x, y + lineHeight * 2, 168);
         if ($dataSystem.optDisplayTp) {
-            this.drawActorMp(this._battler, x, y + lineHeight * 3, 90);
-            this.drawActorTp(this._battler, x + 96, y + lineHeight * 3, 90);
+            this.drawActorMp(this._battler, x + 174, y + lineHeight * 2, 84);
+            this.drawActorTp(this._battler, x + 174 + 90, y + lineHeight * 2, 84);
         } else {
             this.drawActorMp(this._battler, x, y + lineHeight * 3);
         }
@@ -3574,14 +3575,14 @@ Game_Interpreter.prototype.unitAddState = function(eventId, stateId) {
 
     Window_SrpgStatus.prototype.drawBasicInfoEnemy = function(x, y) {
         var lineHeight = this.lineHeight();
-        this.drawEnemyLevel(this._battler, x, y + lineHeight * 0);
-        this.drawActorIcons(this._battler, x, y + lineHeight * 1);
-        this.drawActorHp(this._battler, x, y + lineHeight * 2);
+        this.drawEnemyLevel(this._battler, x + 174, y + lineHeight * 1);
+        this.drawActorIcons(this._battler, x + 174, y + lineHeight * 0);
+        this.drawActorHp(this._battler, x, y + lineHeight * 2, 168);
         if ($dataSystem.optDisplayTp) {
-            this.drawActorMp(this._battler, x, y + lineHeight * 3, 90);
-            this.drawActorTp(this._battler, x + 96, y + lineHeight * 3, 90);
+            this.drawActorMp(this._battler, x + 174, y + lineHeight * 2, 84);
+            this.drawActorTp(this._battler, x + 174 + 90, y + lineHeight * 2, 84);
         } else {
-            this.drawActorMp(this._battler, x, y + lineHeight * 3);
+            this.drawActorMp(this._battler, x, y + lineHeight * 2);
         }
     };
 
@@ -3715,7 +3716,7 @@ Game_Interpreter.prototype.unitAddState = function(eventId, stateId) {
     };
 
     Window_SrpgBattleStatus.prototype.windowHeight = function() {
-        return this.fittingHeight(4);
+        return this.fittingHeight(2);
     };
 
     Window_SrpgBattleStatus.prototype.update = function() {
@@ -3770,27 +3771,28 @@ Game_Interpreter.prototype.unitAddState = function(eventId, stateId) {
         }
     };
 
+    //modified by onlimono
     Window_SrpgBattleStatus.prototype.drawContentsActor = function() {
         var lineHeight = this.lineHeight();
-        this.drawActorName(this._battler, 176, lineHeight * 0);
-        this.drawActorFace(this._battler, 6, lineHeight * 0);
-        this.drawBasicInfoActor(176, lineHeight * 1);
+        this.drawActorName(this._battler, 0, lineHeight * 0);
+//        this.drawActorFace(this._battler, 6, lineHeight * 0);
+        this.drawBasicInfoActor(0, lineHeight * 0);
     };
 
     Window_SrpgBattleStatus.prototype.drawContentsEnemy = function() {
         var lineHeight = this.lineHeight();
-        this.drawActorName(this._battler, 176, lineHeight * 0);
-        this.drawEnemyFace(this._battler, 6, lineHeight * 0);
-        this.drawBasicInfoEnemy(176, lineHeight * 1);
+        this.drawActorName(this._battler, 0, lineHeight * 0);
+//        this.drawEnemyFace(this._battler, 6, lineHeight * 0);
+        this.drawBasicInfoEnemy(0, lineHeight * 0);
     };
 
     Window_SrpgBattleStatus.prototype.drawBasicInfoActor = function(x, y) {
         var lineHeight = this.lineHeight();
-        this.drawActorIcons(this._battler, x, y + lineHeight * 0);
-        this.drawActorHp(this._battler, x, y + lineHeight * 1);
+        this.drawActorIcons(this._battler, x + 174, y + lineHeight * 0);
+        this.drawActorHp(this._battler, x, y + lineHeight * 1, 168);
         if ($dataSystem.optDisplayTp) {
-            this.drawActorMp(this._battler, x, y + lineHeight * 2, 90);
-            this.drawActorTp(this._battler, x + 96, y + lineHeight * 2, 90);
+            this.drawActorMp(this._battler, x + 174, y + lineHeight * 1, 84);
+            this.drawActorTp(this._battler, x + 174 + 90, y + lineHeight * 1, 84);
         } else {
             this.drawActorMp(this._battler, x, y + lineHeight * 2);
         }
@@ -3799,11 +3801,11 @@ Game_Interpreter.prototype.unitAddState = function(eventId, stateId) {
 
     Window_SrpgBattleStatus.prototype.drawBasicInfoEnemy = function(x, y) {
         var lineHeight = this.lineHeight();
-        this.drawActorIcons(this._battler, x, y + lineHeight * 0);
-        this.drawActorHp(this._battler, x, y + lineHeight * 1);
+        this.drawActorIcons(this._battler, x + 174, y + lineHeight * 0);
+        this.drawActorHp(this._battler, x, y + lineHeight * 1, 168);
         if ($dataSystem.optDisplayTp) {
-            this.drawActorMp(this._battler, x, y + lineHeight * 2, 90);
-            this.drawActorTp(this._battler, x + 96, y + lineHeight * 2, 90);
+            this.drawActorMp(this._battler, x + 174, y + lineHeight * 1, 84);
+            this.drawActorTp(this._battler, x + 174 + 90, y + lineHeight * 1, 84);
         } else {
             this.drawActorMp(this._battler, x, y + lineHeight * 2);
         }
@@ -3878,7 +3880,7 @@ Game_Interpreter.prototype.unitAddState = function(eventId, stateId) {
         var width = this.windowWidth();
         var height = this.windowHeight();
         var x = (Graphics.boxWidth - width) / 2;
-        var y = Graphics.boxHeight / 2 - height;
+        var y = 0;
         this._battler = battler;
         this._reserveExp = this._battler.currentExp();
         this._level = this._battler.level;
@@ -3892,7 +3894,7 @@ Game_Interpreter.prototype.unitAddState = function(eventId, stateId) {
     };
 
     Window_SrpgBattleResult.prototype.windowHeight = function() {
-        return this.fittingHeight(4);
+        return this.fittingHeight(3);
     };
 
     Window_SrpgBattleResult.prototype.isChangeExp = function() {
@@ -3924,24 +3926,25 @@ Game_Interpreter.prototype.unitAddState = function(eventId, stateId) {
         this.drawContents();
     };
 
+    //modified by onlimono
     Window_SrpgBattleResult.prototype.drawContents = function() {
         var lineHeight = this.lineHeight();
         this.drawGainExp(6, lineHeight * 0);
-        this.drawGainGold(6, lineHeight * 2);
-        this.drawGainItem(0, lineHeight * 3);
+        this.drawGainGold(6, lineHeight * 1);
+        this.drawGainItem(0, lineHeight * 2);
     };
 
     Window_SrpgBattleResult.prototype.drawGainExp = function(x, y) {
         var lineHeight = this.lineHeight();
         var exp = this._rewards.exp;
         var width = this.windowWidth() - this.padding * 2;
-        if (exp > 0) {
+/*        if (exp > 0) {
             var text = TextManager.obtainExp.format(exp, TextManager.exp);
             this.resetTextColor();
             this.drawText(text, x, y, width);
         } else {
             this._changeExp = 1;
-        }
+        }*/
         var color1 = this.hpGaugeColor1();
         var color2 = this.hpGaugeColor2();
         var nowExp = Math.floor(this._reserveExp + exp / 30 * (31 - this._changeExp));
@@ -4369,7 +4372,7 @@ Game_Interpreter.prototype.unitAddState = function(eventId, stateId) {
             } else {
                 this.changePaintOpacity(true);
             }
-            this.drawActorFace(actor, rect.x + 1, rect.y + 1, Window_Base._faceWidth, Window_Base._faceHeight);
+//            this.drawActorFace(actor, rect.x + 1, rect.y + 1, Window_Base._faceWidth, Window_Base._faceHeight);
         } else {
             _SRPG_Window_MenuStatus_drawItemImage.call(this, index);
         }
@@ -4380,9 +4383,11 @@ Game_Interpreter.prototype.unitAddState = function(eventId, stateId) {
 //====================================================================
     var _SRPG_Window_MenuCommand_makeCommandList = Window_MenuCommand.prototype.makeCommandList;
     Window_MenuCommand.prototype.makeCommandList = function() {
+        //modified by onlimono
         if ($gameSystem.isSRPGMode() == true) {
             this.addTurnEndCommand();
             if (_srpgAutoBattleStateId > 0) this.addAutoBattleCommand();
+            this.addSaveCommand();
         }
         _SRPG_Window_MenuCommand_makeCommandList.call(this);
     };
@@ -5922,8 +5927,8 @@ Game_Interpreter.prototype.unitAddState = function(eventId, stateId) {
                 this._srpgBattleStatusWindowRight.setBattler($gameTroop.members()[1]);
             }
         }
-        this.addWindow(this._srpgBattleStatusWindowLeft);
-        this.addWindow(this._srpgBattleStatusWindowRight);
+//        this.addWindow(this._srpgBattleStatusWindowLeft);
+//        this.addWindow(this._srpgBattleStatusWindowRight);
         BattleManager.setSrpgBattleStatusWindow(this._srpgBattleStatusWindowLeft, this._srpgBattleStatusWindowRight);
     };
 
