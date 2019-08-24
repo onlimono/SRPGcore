@@ -3505,11 +3505,11 @@ Game_Interpreter.prototype.unitAddState = function(eventId, stateId) {
     };
 
     Window_SrpgStatus.prototype.windowWidth = function() {
-        return 408;
+        return Graphics.boxWidth / 2;
     };
 
     Window_SrpgStatus.prototype.windowHeight = function() {
-        return this.fittingHeight(10);
+        return this.fittingHeight(3);
     };
 
     Window_SrpgStatus.prototype.setBattler = function(data) {
@@ -3669,7 +3669,7 @@ Game_Interpreter.prototype.unitAddState = function(eventId, stateId) {
         var width = this.windowWidth() - x - this.textPadding();
         var width2 = Math.min(200, this.windowWidth() - 180 - this.textPadding());
         var lineHeight = this.lineHeight();
-        var x2 = x + 180;
+        var x2 = x + 156;
         var width2 = Math.min(200, width - 180 - this.textPadding());
         this.drawActorName(this._battler, x, y);
         this.drawActorLevel(this._battler, x, y + lineHeight * 1);
@@ -3929,8 +3929,8 @@ Game_Interpreter.prototype.unitAddState = function(eventId, stateId) {
     //modified by onlimono
     Window_SrpgBattleResult.prototype.drawContents = function() {
         var lineHeight = this.lineHeight();
-        this.drawGainExp(6, lineHeight * 0);
-        this.drawGainGold(6, lineHeight * 1);
+        this.drawGainExp(0, lineHeight * 0);
+        this.drawGainGold(0, lineHeight * 1);
         this.drawGainItem(0, lineHeight * 2);
     };
 
@@ -3965,14 +3965,14 @@ Game_Interpreter.prototype.unitAddState = function(eventId, stateId) {
                        (this._battler.expForLevel(this._level + 1) - this._battler.expForLevel(this._level));
             var nextExp = this._battler.expForLevel(this._level + 1) - nowExp;
         }
-        this.drawGauge(x + 100, y + lineHeight, width - 100, rate, color1, color2);
+        this.drawGauge(x + 100, y, width - 100, rate, color1, color2);
         this.changeTextColor(this.systemColor());
-        this.drawText(TextManager.levelA, x, y + lineHeight, 48);
+        this.drawText(TextManager.levelA, x, y, 48);
         this.resetTextColor();
-        this.drawText(this._level, x + 48, y + lineHeight, 36, 'right');
+        this.drawText(this._level, x + 48, y, 36, 'right');
         var expNext = TextManager.expNext.format(TextManager.level);
-        this.drawText(expNext, width - 270, y + lineHeight, 270);
-        this.drawText(nextExp, width - 270, y + lineHeight, 270, 'right');
+        this.drawText(expNext, width - 270, y, 270);
+        this.drawText(nextExp, width - 270, y, 270, 'right');
         this._changeExp -= 1;
     };
 
@@ -4388,8 +4388,9 @@ Game_Interpreter.prototype.unitAddState = function(eventId, stateId) {
             this.addTurnEndCommand();
             if (_srpgAutoBattleStateId > 0) this.addAutoBattleCommand();
             this.addSaveCommand();
+        } else {
+            _SRPG_Window_MenuCommand_makeCommandList.call(this);
         }
-        _SRPG_Window_MenuCommand_makeCommandList.call(this);
     };
 
     Window_MenuCommand.prototype.addTurnEndCommand = function() {
